@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미야옹진 · 고양이 지식 마을</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="paper-grain" aria-hidden="true"></div>
+    <div class="paw-trail" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <button class="brand" type="button" data-go="home" aria-label="마을로 돌아가기">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="42" height="42">
+            <ellipse cx="32" cy="38" rx="18" ry="16" fill="#fff" stroke="#1a1a1a" stroke-width="2.4" />
+            <path d="M16 28 L12 10 L26 22 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2.4" />
+            <path d="M48 28 L52 10 L38 22 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2.4" />
+            <circle cx="26" cy="36" r="2.2" fill="#1a1a1a" />
+            <circle cx="38" cy="36" r="2.2" fill="#1a1a1a" />
+            <ellipse cx="32" cy="42" rx="2.2" ry="1.5" fill="#e8a0a0" />
+            <path d="M32 44 Q26 48 22 46" fill="none" stroke="#1a1a1a" stroke-width="1.6" />
+            <path d="M32 44 Q38 48 42 46" fill="none" stroke="#1a1a1a" stroke-width="1.6" />
+          </svg>
+        </span>
+        <span>
+          <strong>미야옹진</strong>
+          <small>고양이 지식 마을</small>
+        </span>
+      </button>
+      <nav class="top-actions">
+        <button class="ink-btn" type="button" data-go="guestbook">방명록</button>
+        <button class="ink-btn cheese" type="button" data-go="reflect">탐구 이후</button>
+      </nav>
+    </header>
+
+    <main id="app"></main>
+
+    <footer class="site-footer">
+      <p>2026-2 학생자율연구 · 조 미야옹진 · 김예진</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
