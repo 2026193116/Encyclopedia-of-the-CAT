@@ -1,18 +1,31 @@
 const app = document.getElementById("app");
 const GUEST_KEY = "miyaongjin-guestbook";
 
-function catSvg(fill, extra = "") {
+function catSvg(fill, extra = "", { pattern = "solid", faceColor = fill } = {}) {
+  const isSiamese = pattern === "siamese";
+  const isYellow = fill === "#e0a45a";
+  const isBlack = fill === "#171411";
+  const pointColor = isSiamese ? faceColor : fill;
+  const eyeColor = isSiamese ? "#78bde8" : isBlack ? "#8acb70" : "#171411";
+  const mouthColor = isBlack ? "#fffdf8" : "#171411";
+  const yellowMuzzle = isYellow
+    ? '<path d="M65 61 Q70 58 76 59 Q78 54 80 51 Q82 54 84 59 Q90 58 95 61 Q93 72 80 74 Q67 72 65 61Z" fill="#fffdf8"/>'
+    : "";
+
   return `
     <svg class="house-cat" viewBox="0 0 160 90" aria-hidden="true">
+      <path d="M108 63 C122 53 140 54 148 68" fill="none" stroke="#171411" stroke-width="8" stroke-linecap="round"/>
+      <path d="M108 63 C122 53 140 54 148 68" fill="none" stroke="${pointColor}" stroke-width="5" stroke-linecap="round"/>
+      <path d="M57 42 L54 28 Q62 32 70 40Z" fill="${pointColor}" stroke="#171411" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M103 42 L106 28 Q98 32 90 40Z" fill="${pointColor}" stroke="#171411" stroke-width="3" stroke-linejoin="round"/>
       <ellipse cx="80" cy="58" rx="34" ry="24" fill="${fill}" stroke="#171411" stroke-width="3"/>
-      <path d="M52 48 L46 22 L70 40Z" fill="${fill}" stroke="#171411" stroke-width="3"/>
-      <path d="M108 48 L114 22 L90 40Z" fill="${fill}" stroke="#171411" stroke-width="3"/>
-      <circle cx="70" cy="54" r="3.2" fill="#171411"/>
-      <circle cx="90" cy="54" r="3.2" fill="#171411"/>
+      ${isSiamese ? `<path d="M56 54 Q59 45 68 46 Q74 43 80 47 Q86 43 92 46 Q101 45 104 54 Q100 64 91 67 Q85 69 80 65 Q75 69 69 67 Q60 64 56 54Z" fill="${faceColor}"/>` : ""}
+      ${yellowMuzzle}
+      <circle cx="70" cy="54" r="3.2" fill="${eyeColor}"/>
+      <circle cx="90" cy="54" r="3.2" fill="${eyeColor}"/>
       <ellipse cx="80" cy="62" rx="3.2" ry="2" fill="#e7a39a"/>
-      <path d="M80 64 Q70 70 62 66" fill="none" stroke="#171411" stroke-width="2"/>
-      <path d="M80 64 Q90 70 98 66" fill="none" stroke="#171411" stroke-width="2"/>
-      <path d="M114 62 Q138 50 148 68" fill="none" stroke="#171411" stroke-width="3"/>
+      <path d="M80 64 Q76 68 72 66" fill="none" stroke="${mouthColor}" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M80 64 Q84 68 88 66" fill="none" stroke="${mouthColor}" stroke-width="1.8" stroke-linecap="round"/>
       ${extra}
     </svg>
   `;
@@ -45,7 +58,15 @@ function renderHome() {
             <span style="color:${field.roof === "#171411" || field.roof === "#5c3d24" ? "#fffdf8" : "#171411"}">${field.catName}</span>
           </div>
           <div class="house-body">
-            ${catSvg(field.roof === "#fffdf8" || field.roof === "#f3f1ec" ? "#fffdf8" : field.roof)}
+            ${catSvg(
+              field.catPattern === "siamese"
+                ? "#f3e7d2"
+                : field.roof === "#fffdf8" || field.roof === "#f3f1ec"
+                  ? "#fffdf8"
+                  : field.roof,
+              "",
+              { pattern: field.catPattern, faceColor: field.roof }
+            )}
             <h2>${field.name}</h2>
             <p>${field.houseLine}</p>
           </div>

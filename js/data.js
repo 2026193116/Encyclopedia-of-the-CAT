@@ -156,6 +156,7 @@ const FIELDS = [
     name: "정치외교학",
     catName: "쥐돌이",
     roof: "#5c3d24",
+    catPattern: "siamese",
     accent: "#3f2a18",
     houseLine: "고양이와 쥐의 은유",
     cat: {
