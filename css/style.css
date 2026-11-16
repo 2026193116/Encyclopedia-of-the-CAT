@@ -398,12 +398,18 @@ h1.page-title,
 
 .reflect-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  align-items: start;
+}
+
+.reflection-column {
+  display: grid;
+  gap: 16px;
+  align-content: start;
 }
 
 .blank-card {
-  min-height: 280px;
   border: 3px dashed var(--ink);
   border-radius: 20px;
   background:
@@ -419,6 +425,12 @@ h1.page-title,
 .blank-card .empty {
   color: var(--gray-cat);
   font-style: italic;
+}
+
+.reflection-text {
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin: 0;
 }
 
 .guestbook-head {
