@@ -38,7 +38,10 @@ function renderHome() {
       ${FIELDS.map(
         (field) => `
         <button class="house" type="button" data-go="field" data-id="${field.id}">
-          <div class="roof" style="background:${field.roof};color:${field.accent === "#fffdf8" ? "#fffdf8" : "#171411"}">
+          <div class="roof" style="--roof-color:${field.roof};color:${field.accent === "#fffdf8" ? "#fffdf8" : "#171411"}">
+            <svg class="roof-outline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M1 42 L50 2 L99 42 V99 H1 Z" />
+            </svg>
             <span style="color:${field.roof === "#171411" || field.roof === "#5c3d24" ? "#fffdf8" : "#171411"}">${field.catName}</span>
           </div>
           <div class="house-body">

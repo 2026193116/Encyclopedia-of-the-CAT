@@ -192,12 +192,9 @@ textarea {
   appearance: none;
   text-align: left;
   cursor: pointer;
-  border: 3px solid var(--ink);
-  background: #fff;
-  border-radius: 22px 22px 16px 16px;
+  border: 0;
   padding: 0;
-  overflow: hidden;
-  box-shadow: 4px 6px 0 rgba(23, 20, 17, 0.12);
+  background: transparent;
   transition: transform 0.15s ease;
 }
 
@@ -206,22 +203,40 @@ textarea {
 }
 
 .roof {
-  min-height: 48px;
-  border-bottom: 3px solid var(--ink);
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 12px;
   position: relative;
+}
+
+.roof-outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.roof-outline path {
+  fill: var(--roof-color);
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
 }
 
 .roof span {
   font-family: "Gaegu", cursive;
   font-size: 22px;
   font-weight: 700;
+  position: relative;
+  z-index: 1;
 }
 
 .house-body {
+  border: 2px solid var(--ink);
+  border-top: 0;
+  background: #fff;
   padding: 14px 14px 16px;
 }
 
