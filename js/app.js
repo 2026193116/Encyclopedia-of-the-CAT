@@ -53,7 +53,7 @@ function renderHome() {
         <button class="house" type="button" data-go="field" data-id="${field.id}">
           <div class="roof" style="--roof-color:${field.roof};color:${field.accent === "#fffdf8" ? "#fffdf8" : "#171411"}">
             <svg class="roof-outline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M1 42 L50 2 L99 42 V99 H1 Z" />
+              <path d="M0.25 42 L50 0 L99.75 42 V99 H0.25 Z" />
             </svg>
             <span style="color:${field.roof === "#171411" || field.roof === "#5c3d24" ? "#fffdf8" : "#171411"}">${field.catName}</span>
           </div>
@@ -241,7 +241,16 @@ function renderGuestbook() {
                   (e, index) => `
           <article class="entry">
             <header>
-              <strong>${escapeHtml(e.name)}</strong>
+              <span class="entry-author">
+                <strong>${escapeHtml(e.name)}</strong>
+                <svg class="entry-paw" viewBox="0 0 32 32" aria-hidden="true">
+                  <ellipse cx="8" cy="10" rx="3.2" ry="4.3" />
+                  <ellipse cx="15" cy="6.5" rx="3.2" ry="4.3" />
+                  <ellipse cx="22" cy="8" rx="3.2" ry="4.3" />
+                  <ellipse cx="27" cy="14" rx="2.8" ry="3.8" />
+                  <path d="M7 22 Q7 16 15 14 Q21 12 25 17 Q30 22 24 26 Q19 29 12 27 Q6 27 7 22Z" />
+                </svg>
+              </span>
               <span>${e.date}</span>
               ${showDelete ? `<button class="entry-delete" type="button" data-delete="${index}">삭제</button>` : ""}
             </header>

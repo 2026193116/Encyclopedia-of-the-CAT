@@ -508,6 +508,19 @@ h1.page-title,
   font-size: 20px;
 }
 
+.entry-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.entry-paw {
+  width: 22px;
+  height: 22px;
+  fill: var(--cheese-deep);
+  flex: 0 0 auto;
+}
+
 .entry p {
   margin: 8px 0 0;
   line-height: 1.7;
